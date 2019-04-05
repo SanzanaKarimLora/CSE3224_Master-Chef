@@ -21,7 +21,7 @@ public partial class Registration : System.Web.UI.Page
 
 
 
-        if (!txtUser.Text.Equals(String.Empty) && txtPw.Text.Equals(txtConfirmPw.Text))
+        if (!txtUser.Text.Equals(String.Empty)  && !txtPw.Text.Equals(String.Empty) && !txtConfirmPw.Text.Equals(String.Empty) && txtPw.Text.Equals(txtConfirmPw.Text))
         {
             string queryReg = "insert into Users (user_name,user_password) values ('" + txtUser.Text + "','" + txtConfirmPw.Text + "')";
             SqlCommand cmdreg = new SqlCommand(queryReg, con);

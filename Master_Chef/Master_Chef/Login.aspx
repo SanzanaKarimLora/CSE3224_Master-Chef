@@ -239,9 +239,10 @@
     <form id="form1" runat="server">
         <div class="formclass1">
             <h1>Login Page</h1>
-            <asp:TextBox ID="txtUserName" CssClass="input1" placeholder="Enter User Name" runat="server"></asp:TextBox><br /><br />
+            <asp:TextBox ID="txtUserName" CssClass="input1" placeholder="Enter User Name" runat="server" ></asp:TextBox><br /><br />
             <asp:TextBox ID="txtPassword" CssClass="input1" placeholder="Enter Password" TextMode="Password" runat="server"></asp:TextBox><br /><br />
             <asp:Button ID="btnLogin" CssClass="input1" Width="100%" runat="server" Text="Login" OnClick="btnLogin_Click" />
+            <asp:Label ID="lblLog" runat="server" Text=" " ForeColor="Red"></asp:Label>
         </div>
     </form>
 

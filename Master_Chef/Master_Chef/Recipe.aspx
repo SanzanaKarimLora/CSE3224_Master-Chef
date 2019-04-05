@@ -19,9 +19,31 @@
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
+    <style type="text/css">
+        .auto-style1 {
+            margin-left: 121px;
+        }
+        .auto-style2 {
+            position: relative;
+            width: 100%;
+            min-height: 1px;
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+            left: 0px;
+            top: 0px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .auto-style3 {
+            width: 317px;
+        }
+    </style>
+
 </head>
 
 <body>
+    <form id="form1" runat="server">
     <!-- Preloader -->
     <div id="preloader">
         <i class="circle-preloader"></i>
@@ -36,10 +58,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <form action="#" method="post">
                         <input type="search" name="search" placeholder="Type any keywords...">
                         <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -213,7 +233,6 @@
         <!-- Receipe Post Search -->
         <div class="receipe-post-search mb-80">
             <div class="container">
-                <form action="#" method="post">
                     <div class="row">
                         <div class="col-12 col-lg-3">
                             <select name="select1" id="select1">
@@ -240,7 +259,6 @@
                             <button type="submit" class="btn delicious-btn">Search</button>
                         </div>
                     </div>
-                </form>
             </div>
         </div>
 
@@ -373,44 +391,110 @@
 
 
                 <div class="row">
-                    <div class="col-12">
+                    <div class="auto-style2">
                         <div class="section-heading text-left">
                             <h3>Leave a comment</h3>
                         </div>
                     </div>
                 </div>
 
-                <div class="row">
+               <!-- <div class="row">
                     <div class="col-12">
                         <div class="contact-form-area">
-                            <form action="#" method="post">
                                 <div class="row">
                                     <div class="col-12 col-lg-6">
                                         <input type="text" class="form-control" id="name" placeholder="Name">
+                                        <asp:TextBox ID="txtNameC" runat="server"></asp:TextBox>
                                     </div>
                                     <div class="col-12 col-lg-6">
                                         <input type="email" class="form-control" id="email" placeholder="E-mail">
+                                        <asp:TextBox ID="txtEmailC" runat="server"></asp:TextBox>
                                     </div>
                                     <div class="col-12">
                                         <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                        <asp:TextBox ID="txtSubC" runat="server"></asp:TextBox>
                                     </div>
                                     <div class="col-12">
-                                        <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                                        <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Comments"></textarea>
+                                        <asp:TextBox ID="txtCmnt" runat="server"></asp:TextBox>
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn delicious-btn mt-30" type="submit">Post Comments</button>
+                                        
+                                        <asp:Button ID="btnComnt" class="btn delicious-btn mt-30" runat="server" Text="Post Comments" OnClick="btnCmnt_Click" />
                                     </div>
                                 </div>
-                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+
+                <table class="w-100">
+                    <tr>
+                        <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Name</td>
+                        <td>
+                            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Email&nbsp;</td>
+                        <td>
+                            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Comment&nbsp;</td>
+                        <td>
+                            <asp:TextBox ID="TextBox3" runat="server" Height="132px" Width="592px"></asp:TextBox>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style3">&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+
+                <asp:Button ID="btnCmnt" class="btn delicious-btn mt-30" runat="server" Text="Post Comments" OnClick="btnCmnt_Click" />
+    <asp:DataList ID="DataList1" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" CssClass="auto-style1" DataKeyField="c_id" DataSourceID="SqlDataSource1" GridLines="Vertical" Width="928px">
+        <AlternatingItemStyle BackColor="#DCDCDC" />
+        <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
+        <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
+        <ItemStyle BackColor="#EEEEEE" ForeColor="Black" />
+        <ItemTemplate>
+            <table class="w-100">
+                <tr>
+                    <td>Posted By :
+                        <asp:Label ID="lblCmntBy" runat="server" Text='<%# Eval("c_name") %>'></asp:Label>
+                        &nbsp;on Date :
+                        <asp:Label ID="lblCmntDate" runat="server" Text='<%# Eval("c_date") %>'></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <br />
+            Comment :
+            <asp:Label ID="lblCmnt" runat="server" Text='<%# Eval("c_text") %>'></asp:Label>
+            <br />
+        </ItemTemplate>
+        <SelectedItemStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
+        </asp:DataList>
 
     
-    <!-- ##### Follow Us Instagram Area Start ##### -->
+        <p>
+            <br />
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Master_ChefConnectionString %>" SelectCommand="SELECT * FROM [Comment] ORDER BY [c_date] DESC"></asp:SqlDataSource>
+        </p>
+        <p>
+            &nbsp;</p>
     <div class="follow-us-instagram">
         <div class="container">
             <div class="row">
@@ -526,6 +610,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+    </form>
 </body>
 
 </html>
