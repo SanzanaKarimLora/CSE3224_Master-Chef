@@ -231,7 +231,7 @@
     <div class="receipe-post-area section-padding-80">
 
         <!-- Receipe Post Search -->
-        <div class="receipe-post-search mb-80">
+       <!-- <div class="receipe-post-search mb-80">
             <div class="container">
                     <div class="row">
                         <div class="col-12 col-lg-3">
@@ -260,6 +260,49 @@
                         </div>
                     </div>
             </div>
+        </div> -->
+
+        <div class="receipe-post-search mb-80">
+            <div class="container">
+                    <div class="row">
+                        
+        
+                        <div class="col-12 col-lg-3">
+                            
+                            <asp:TextBox ID="txtSearch" runat="server"  placeholder="Search Receipies" Width="300px"></asp:TextBox>
+                        </div>
+                        <div class="col-12 col-lg-3 text-right">
+                           
+                            <asp:Button ID="btnSearch" class="btn delicious-btn" runat="server" Text="Search" />
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <div>
+            <center>
+            <asp:GridView ID="gdvSearch" runat="server" ShowHeaderWhenEmpty="True" EmptyDataText="No records found!!!" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSourceSearch" ForeColor="#333333" GridLines="None">
+                <AlternatingRowStyle BackColor="White" />
+                <Columns>
+                    <asp:HyperLinkField DataNavigateUrlFields="recipe_title" DataNavigateUrlFormatString="post.aspx?recipe_title={0}" DataTextField="recipe_title" HeaderText="Recipe Name"/>
+                </Columns>
+                <EditRowStyle BackColor="#7C6F57" />
+                <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#E3EAEB" />
+                <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                <SortedAscendingHeaderStyle BackColor="#246B61" />
+                <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                <SortedDescendingHeaderStyle BackColor="#15524A" />
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSourceSearch" runat="server" ConnectionString="<%$ ConnectionStrings:Master_ChefConnectionStringSearch %>" SelectCommand="SELECT recipe_title FROM Recipe WHERE (recipe_title LIKE '%' + @recipe_title + '%') OR (category LIKE '%' + @category + '%')">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="txtSearch" Name="recipe_title" PropertyName="Text" Type="String" />
+                    <asp:ControlParameter ControlID="txtSearch" Name="category" PropertyName="Text" Type="String" />
+                </SelectParameters>
+            </asp:SqlDataSource></center>
         </div>
 
         <!-- Receipe Slider -->
@@ -398,7 +441,7 @@
                     </div>
                 </div>
 
-               <!-- <div class="row">
+               <div class="row">
                     <div class="col-12">
                         <div class="contact-form-area">
                                 <div class="row">
@@ -410,10 +453,7 @@
                                         <input type="email" class="form-control" id="email" placeholder="E-mail">
                                         <asp:TextBox ID="txtEmailC" runat="server"></asp:TextBox>
                                     </div>
-                                    <div class="col-12">
-                                        <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                        <asp:TextBox ID="txtSubC" runat="server"></asp:TextBox>
-                                    </div>
+                                    
                                     <div class="col-12">
                                         <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Comments"></textarea>
                                         <asp:TextBox ID="txtCmnt" runat="server"></asp:TextBox>
@@ -428,9 +468,9 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div> 
 
-                <table class="w-100">
+             <!--   <table class="w-100">
                     <tr>
                         <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Name</td>
                         <td>
@@ -459,9 +499,9 @@
                         <td class="auto-style3">&nbsp;</td>
                         <td>&nbsp;</td>
                     </tr>
-                </table>
+                </table> -->
 
-                <asp:Button ID="btnCmnt" class="btn delicious-btn mt-30" runat="server" Text="Post Comments" OnClick="btnCmnt_Click" />
+             <!--   <asp:Button ID="btnCmnt" class="btn delicious-btn mt-30" runat="server" Text="Post Comments" OnClick="btnCmnt_Click" /> -->
     <asp:DataList ID="DataList1" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" CssClass="auto-style1" DataKeyField="c_id" DataSourceID="SqlDataSource1" GridLines="Vertical" Width="928px">
         <AlternatingItemStyle BackColor="#DCDCDC" />
         <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />

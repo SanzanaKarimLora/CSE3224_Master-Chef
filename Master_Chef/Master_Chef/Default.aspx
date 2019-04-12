@@ -111,7 +111,7 @@
                                             <li><a href="Default.aspx">Home</a></li>
                                             <li><a href="About.aspx">About Us</a></li>
                                             <li><a href="Post.aspx">Blog Post</a></li>
-                                            <li><a href="Receipe.aspx">Receipe Post</a></li>
+                                            <li><a href="Recipe.aspx">Receipe Post</a></li>
                                             <li><a href="Contact.aspx">Contact</a></li>
                                             <li><a href="Contents.aspx">Elements</a></li>
                                             <li><a href="#">Dropdown</a>
