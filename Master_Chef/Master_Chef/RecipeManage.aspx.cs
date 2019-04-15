@@ -6,10 +6,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
+using System.IO;
 
 public partial class RecipeManage : System.Web.UI.Page
 {
     string conStringManage = @"Data Source=DESKTOP-1RVC546\SQLEXPRESS; Initial Catalog=Master_Chef;Integrated Security=True";
+    
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -155,5 +157,20 @@ public partial class RecipeManage : System.Web.UI.Page
             lblSuccessManage.Text = "";
             lblErrorManage.Text = ex.Message;
         }
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        SqlConnection sqlcon = new SqlConnection(conStringManage);
+        imgFile.SaveAs(Server.MapPath("~/foodpic/")+ Path.GetFileName(imgFile.FileName));
+
+        string link = "foodpic/" + Path.GetFileName(imgFile.FileName);
+        string qim = "INSERT INTO Recipe(recipe_title,category,preparation_time,description,recipe_image,admin_id) VALUES ('jhkj','category',10,'description','" + link + "',1101)";
+        //string qim = "insert into Recipe (recipe_image) values ('" + link + "')";
+        SqlCommand cmdi = new SqlCommand(qim, sqlcon);
+        sqlcon.Open();
+        cmdi.ExecuteNonQuery();
+        sqlcon.Close();
+
     }
 }

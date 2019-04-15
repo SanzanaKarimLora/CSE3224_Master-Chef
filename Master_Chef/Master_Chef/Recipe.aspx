@@ -328,9 +328,10 @@
                             <span>April 05, 2018</span>
                             <h2>Vegetarian cheese salad</h2>
                             <div class="receipe-duration">
-                                <h6>Prep: 15 mins</h6>
-                                <h6>Cook: 30 mins</h6>
-                                <h6>Yields: 8 Servings</h6>
+                                <h6>Preparation time: <asp:Label ID="lblPrep" runat="server" Text="Label"></asp:Label> mins</h6>
+                                <h6>Category: <asp:Label ID="lblCate" runat="server" Text=""></asp:Label></h6>
+                                <h6>Nutrition: <asp:Label ID="lblCal" runat="server" Text=""></asp:Label> KCals </h6>
+                               
                             </div>
                         </div>
                     </div>
@@ -354,7 +355,8 @@
                         <!-- Single Preparation Step -->
                         <div class="single-preparation-step d-flex">
                             <h4>01.</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. Phasellus posuere vestibulum ipsum, eget lobortis purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
+                            <p><asp:Label ID="lblDescription" runat="server" Text=" "></asp:Label></p>
+                       
                         </div>
                         <!-- Single Preparation Step -->
                         <div class="single-preparation-step d-flex">
