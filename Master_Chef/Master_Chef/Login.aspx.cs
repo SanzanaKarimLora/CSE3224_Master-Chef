@@ -15,6 +15,7 @@ public partial class Login : System.Web.UI.Page
         if (Session["user"] != null)
         {
             Response.Redirect("~/Welcome.aspx");
+            
         }
     }
 

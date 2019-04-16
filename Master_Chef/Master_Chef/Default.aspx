@@ -256,7 +256,7 @@
                         <div class="top-cta-content">
                             <h3>Strawberry Cake</h3>
                             <h6>Simple &amp; Delicios</h6>
-                            <a href="receipe-post.html" class="btn delicious-btn">See Full Receipe</a>
+                            <a href="post.aspx" class="btn delicious-btn">See Full Receipe</a>
                         </div>
                     </div>
                 </div>
@@ -268,7 +268,7 @@
                         <div class="top-cta-content">
                             <h3>Chinesse Noodles</h3>
                             <h6>Simple &amp; Delicios</h6>
-                            <a href="Post.aspx" class="btn delicious-btn">See Full Receipe</a>
+                            <a href="post.aspx" class="btn delicious-btn">See Full Receipe</a>
                         </div>
                     </div>
                 </div>
@@ -313,8 +313,8 @@
                     <div class="single-best-receipe-area mb-30">
                         <img src="img/bg-img/r2.jpg" alt="">
                         <div class="receipe-content">
-                            <a href="receipe-post.html">
-                                <h5>Homemade Burger</h5>
+                            <a href="beef_burger.aspx">
+                                <h5>Beef Burger</h5>
                             </a>
                             <div class="ratings">
                                 <i class="fa fa-star" aria-hidden="true"></i>

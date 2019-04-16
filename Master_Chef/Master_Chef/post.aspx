@@ -208,6 +208,9 @@
     </div>
     <!-- ##### Breadcumb Area End ##### -->
 
+    <!--new post-->
+
+
     <!-- ##### Blog Area Start ##### -->
     <div class="blog-area section-padding-80">
         <div class="container">
