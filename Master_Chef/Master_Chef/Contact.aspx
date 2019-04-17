@@ -242,7 +242,7 @@
                     <!-- Single Contact Information -->
                     <div class="single-contact-information mb-30">
                         <h6>Email:</h6>
-                        <p>yourmail@gmail.com</p>
+                        <p><a href="https://www.gmail.com/">masterchef@gmail.com</a></p>
                     </div>
                 </div>
 

@@ -14,10 +14,10 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="Label1" runat="server" Text="Send Your Valuable Feedback"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Text="User's Valuable Feedback"></asp:Label>
             <br />
             <br />
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Master_ChefConnectionStringFeedback %>" InsertCommand="insert into Feedback values(@f_subject,@f_text,@user_id)" SelectCommand="SELECT [f_subject], [f_text] FROM [Feedback]">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Master_ChefConnectionStringFeedback %>" InsertCommand="insert into Feedback values(@f_subject,@f_text,@user_id)" SelectCommand="SELECT user_id, f_subject AS Subject, f_text AS Feedback, f_date AS Date FROM Feedback">
                 <InsertParameters>
                     <asp:Parameter Name="f_subject" />
                     <asp:Parameter Name="f_text" />
@@ -26,21 +26,33 @@
             </asp:SqlDataSource>
             <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1">
                 <AlternatingItemTemplate>
-                    <span style="background-color: #FAFAD2;color: #284775;">f_subject:
-                    <asp:Label ID="f_subjectLabel" runat="server" Text='<%# Eval("f_subject") %>' />
+                    <span style="background-color: #FAFAD2;color: #284775;">user_id:
+                    <asp:Label ID="user_idLabel" runat="server" Text='<%# Eval("user_id") %>' />
                     <br />
-                    f_text:
-                    <asp:Label ID="f_textLabel" runat="server" Text='<%# Eval("f_text") %>' />
+                    Subject:
+                    <asp:Label ID="SubjectLabel" runat="server" Text='<%# Eval("Subject") %>' />
+                    <br />
+                    Feedback:
+                    <asp:Label ID="FeedbackLabel" runat="server" Text='<%# Eval("Feedback") %>' />
+                    <br />
+                    Date:
+                    <asp:Label ID="DateLabel" runat="server" Text='<%# Eval("Date") %>' />
                     <br />
                     <br />
                     </span>
                 </AlternatingItemTemplate>
                 <EditItemTemplate>
-                    <span style="background-color: #FFCC66;color: #000080;">f_subject:
-                    <asp:TextBox ID="f_subjectTextBox" runat="server" Text='<%# Bind("f_subject") %>' />
+                    <span style="background-color: #FFCC66;color: #000080;">user_id:
+                    <asp:TextBox ID="user_idTextBox" runat="server" Text='<%# Bind("user_id") %>' />
                     <br />
-                    f_text:
-                    <asp:TextBox ID="f_textTextBox" runat="server" Text='<%# Bind("f_text") %>' />
+                    Subject:
+                    <asp:TextBox ID="SubjectTextBox" runat="server" Text='<%# Bind("Subject") %>' />
+                    <br />
+                    Feedback:
+                    <asp:TextBox ID="FeedbackTextBox" runat="server" Text='<%# Bind("Feedback") %>' />
+                    <br />
+                    Date:
+                    <asp:TextBox ID="DateTextBox" runat="server" Text='<%# Bind("Date") %>' />
                     <br />
                     <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
                     <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
@@ -52,11 +64,17 @@
                     <span>No data was returned.</span>
                 </EmptyDataTemplate>
                 <InsertItemTemplate>
-                    <span style="">f_subject:
-                    <asp:TextBox ID="f_subjectTextBox" runat="server" Text='<%# Bind("f_subject") %>' />
+                    <span style="">user_id:
+                    <asp:TextBox ID="user_idTextBox" runat="server" Text='<%# Bind("user_id") %>' />
                     <br />
-                    f_text:
-                    <asp:TextBox ID="f_textTextBox" runat="server" Text='<%# Bind("f_text") %>'></asp:TextBox>
+                    Subject:
+                    <asp:TextBox ID="SubjectTextBox" runat="server" Text='<%# Bind("Subject") %>'></asp:TextBox>
+                    <br />
+                    Feedback:
+                    <asp:TextBox ID="FeedbackTextBox" runat="server" Text='<%# Bind("Feedback") %>' />
+                    <br />
+                    Date:
+                    <asp:TextBox ID="DateTextBox" runat="server" Text='<%# Bind("Date") %>' />
                     <br />
                     <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
                     <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
@@ -65,11 +83,17 @@
                     </span>
                 </InsertItemTemplate>
                 <ItemTemplate>
-                    <span style="background-color: #FFFBD6;color: #333333;">f_subject:
-                    <asp:Label ID="f_subjectLabel" runat="server" Text='<%# Eval("f_subject") %>' />
+                    <span style="background-color: #FFFBD6;color: #333333;">user_id:
+                    <asp:Label ID="user_idLabel" runat="server" Text='<%# Eval("user_id") %>' />
                     <br />
-                    f_text:
-                    <asp:Label ID="f_textLabel" runat="server" Text='<%# Eval("f_text") %>' />
+                    Subject:
+                    <asp:Label ID="SubjectLabel" runat="server" Text='<%# Eval("Subject") %>' />
+                    <br />
+                    Feedback:
+                    <asp:Label ID="FeedbackLabel" runat="server" Text='<%# Eval("Feedback") %>' />
+                    <br />
+                    Date:
+                    <asp:Label ID="DateLabel" runat="server" Text='<%# Eval("Date") %>' />
                     <br />
                     <br />
                     </span>
@@ -79,21 +103,20 @@
                         <span runat="server" id="itemPlaceholder" />
                     </div>
                     <div style="text-align: center;background-color: #FFCC66;font-family: Verdana, Arial, Helvetica, sans-serif;color: #333333;">
-                        <asp:DataPager ID="DataPager1" runat="server">
-                            <Fields>
-                                <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                                <asp:NumericPagerField />
-                                <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                            </Fields>
-                        </asp:DataPager>
                     </div>
                 </LayoutTemplate>
                 <SelectedItemTemplate>
-                    <span style="background-color: #FFCC66;font-weight: bold;color: #000080;">f_subject:
-                    <asp:Label ID="f_subjectLabel" runat="server" Text='<%# Eval("f_subject") %>' />
+                    <span style="background-color: #FFCC66;font-weight: bold;color: #000080;">user_id:
+                    <asp:Label ID="user_idLabel" runat="server" Text='<%# Eval("user_id") %>' />
                     <br />
-                    f_text:
-                    <asp:Label ID="f_textLabel" runat="server" Text='<%# Eval("f_text") %>' />
+                    Subject:
+                    <asp:Label ID="SubjectLabel" runat="server" Text='<%# Eval("Subject") %>' />
+                    <br />
+                    Feedback:
+                    <asp:Label ID="FeedbackLabel" runat="server" Text='<%# Eval("Feedback") %>' />
+                    <br />
+                    Date:
+                    <asp:Label ID="DateLabel" runat="server" Text='<%# Eval("Date") %>' />
                     <br />
                     <br />
                     </span>

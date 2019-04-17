@@ -36,8 +36,8 @@
   background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
   background-image: -moz-linear-gradient(top, #3498db, #2980b9);
   background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-  background-image: -o-linear-gradient(top, #3498db, #2980b9);
-  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, light-green, #2980b9);
+  background-image: linear-gradient(to bottom, green, #2980b9);
   -webkit-border-radius: 28;
   -moz-border-radius: 28;
   border-radius: 28px;
@@ -51,10 +51,10 @@
 .butn:hover {
   background: #3cb0fd;
   background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, green, #3498db);
   background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, light-green, #3498db);
+  background-image: linear-gradient(to bottom, green, #3498db);
   text-decoration: none;
 }
     </style>
@@ -126,7 +126,7 @@
             <asp:Button ID="btnAddIn" runat="server" Text="Add ingredients" CssClass="butn" OnClick="btnAddIn_Click" />
             <asp:Button ID="btngo" runat="server" Text="Go" CssClass="butn" OnClick="btngo_Click" />
         </div>
-        <asp:Label ID="lblPrep" runat="server" Text=""></asp:Label>
+        <a><asp:Label ID="lblPrep" runat="server" Text=""></asp:Label></a>
     </form>
 
         <!-- Navbar Area -->
@@ -163,52 +163,35 @@
                                             <li><a href="Post.aspx">Blog Post</a></li>
                                             <li><a href="Recipe.aspx">Receipe Post</a></li>
                                             <li><a href="Contact.aspx">Contact</a></li>
-                                            <li><a href="Contents.aspx">Elements</a></li>
-                                            <li><a href="#">Dropdown</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="index.html">Home</a></li>
-                                                    <li><a href="about.html">About Us</a></li>
-                                                    <li><a href="blog-post.html">Blog Post</a></li>
-                                                    <li><a href="receipe-post.html">Receipe Post</a></li>
-                                                    <li><a href="contact.html">Contact</a></li>
-                                                    <li><a href="elements.html">Elements</a></li>
-                                                    <li><a href="#">Dropdown</a>
-                                                        <ul class="dropdown">
-                                                            <li><a href="index.html">Home</a></li>
-                                                            <li><a href="about.html">About Us</a></li>
-                                                            <li><a href="blog-post.html">Blog Post</a></li>
-                                                            <li><a href="receipe-post.html">Receipe Post</a></li>
-                                                            <li><a href="contact.html">Contact</a></li>
-                                                            <li><a href="elements.html">Elements</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
+                                            <li><a href="Admin.aspx">Admin</a></li>
+                                            <li><a href="Feed.aspx">Send Feedback</a>
+                                                
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Categories</a>
+                                    <li><a href="#">Mega Menu</a>
                                         <div class="megamenu">
                                             <ul class="single-mega cn-col-4">
-                                                <li class="title">Catagory</li>
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="blog-post.html">Blog Post</a></li>
-                                                <li><a href="receipe-post.html">Receipe Post</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="elements.html">Elements</a></li>
+                                                <li class="title">Mega Menu</li>
+                                                <li><a href="index.html">Diet Control</a></li>
+                                                <li><a href="about.html">Baby food</a></li>
+                                                <li><a href="blog-post.html">Fast Food</a></li>
+                                                <li><a href="receipe-post.html">Ulcer Diet</a></li>
+                                                <li><a href="contact.html">Breakfast</a></li>
+                                                <li><a href="elements.html">Drinks</a></li>
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                <li class="title">Mega Menu</li>
+                                                <li><a href="beef_burger.aspx">Beef burger</a></li>
+                                                <li><a href="cabbageRice.aspx">Cabbage Rice</a></li>
+                                                <li><a href="blog-post.html">Carrot And Potato Ribe</a></li>
+                                                <li><a href="receipe-post.html">Vanilla Milk Shake</a></li>
+                                                <li><a href="Recipe.aspx">Vegetable Soup</a></li>
+                                                <li><a href="elements.html">Chicken Soup</a></li>
                                             </ul>
                                             <ul class="single-mega cn-col-4">
                                                 <li class="title">Catagory</li>
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="blog-post.html">Blog Post</a></li>
-                                                <li><a href="receipe-post.html">Receipe Post</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="elements.html">Elements</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li class="title">Catagory</li>
-                                                <li><a href="index.html">Home</a></li>
+                                                <li><a href="boiledCh.aspx">Boiled Chicken</a></li>
                                                 <li><a href="about.html">About Us</a></li>
                                                 <li><a href="blog-post.html">Blog Post</a></li>
                                                 <li><a href="receipe-post.html">Receipe Post</a></li>
@@ -225,6 +208,7 @@
                                     </li>
                                     <li><a href="Registration.aspx">Register</a></li>
                                     <li><a href="Login.aspx">Login</a></li>
+                                    <li><a href="Admin.aspx">Admin</a></li>
                                     <li><a href="Contact.aspx">Contact</a></li>
                                 </ul>
 

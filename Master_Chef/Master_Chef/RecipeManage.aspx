@@ -120,13 +120,7 @@
                 </Columns>
             </asp:GridView>
 
-            <br />
-            <asp:FileUpload ID="imgFile" runat="server" />
-            <br />
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Save " />
-            <br />
-
-            <br />
+            
 
             <asp:Label ID="lblSuccessManage" runat="server" Text="" ForeColor="Green"></asp:Label>
 
@@ -135,6 +129,8 @@
             <asp:Label ID="lblErrorManage" runat="server" Text="" ForeColor="Red"></asp:Label>
 
         </div>
+
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="IngrAdd.aspx">Enter Ingredients</asp:HyperLink>
     </form>
 </body>
 </html>

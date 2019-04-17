@@ -66,7 +66,7 @@ public partial class RecipeManage : System.Web.UI.Page
                     sqlcmdManage.Parameters.AddWithValue("@category", (recipeGV.FooterRow.FindControl("txtCatfooter") as TextBox).Text.Trim());
                     sqlcmdManage.Parameters.AddWithValue("@preparation_time", (recipeGV.FooterRow.FindControl("txtPTfooter") as TextBox).Text.Trim());
                     sqlcmdManage.Parameters.AddWithValue("@description", (recipeGV.FooterRow.FindControl("txtDesfooter") as TextBox).Text.Trim());
-                    //sqlcmdManage.Parameters.AddWithValue("@recipe_image", (recipeGV.FooterRow.FindControl("txtRimgfooter") as TextBox).Text.Trim());
+                    sqlcmdManage.Parameters.AddWithValue("@recipe_image", (recipeGV.FooterRow.FindControl("txtRimgfooter") as TextBox).Text.Trim());
 
                     sqlcmdManage.ExecuteNonQuery();
                     manageGridView();
@@ -113,7 +113,7 @@ public partial class RecipeManage : System.Web.UI.Page
                     sqlcmdManage.Parameters.AddWithValue("@category", (recipeGV.Rows[e.RowIndex].FindControl("txtCat") as TextBox).Text.Trim());
                     sqlcmdManage.Parameters.AddWithValue("@preparation_time", (recipeGV.Rows[e.RowIndex].FindControl("txtPT") as TextBox).Text.Trim());
                     sqlcmdManage.Parameters.AddWithValue("@description", (recipeGV.Rows[e.RowIndex].FindControl("txtDes") as TextBox).Text.Trim());
-                //sqlcmdManage.Parameters.AddWithValue("@recipe_image", (recipeGV.FooterRow.FindControl("txtRimgfooter") as TextBox).Text.Trim());
+                    sqlcmdManage.Parameters.AddWithValue("@recipe_image", (recipeGV.FooterRow.FindControl("txtRimgfooter") as TextBox).Text.Trim());
                     sqlcmdManage.Parameters.AddWithValue("@id", Convert.ToInt32(recipeGV.DataKeys[e.RowIndex].Value.ToString()));
                     sqlcmdManage.ExecuteNonQuery();
                     recipeGV.EditIndex = -1;
@@ -159,18 +159,5 @@ public partial class RecipeManage : System.Web.UI.Page
         }
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        SqlConnection sqlcon = new SqlConnection(conStringManage);
-        imgFile.SaveAs(Server.MapPath("~/foodpic/")+ Path.GetFileName(imgFile.FileName));
-
-        string link = "foodpic/" + Path.GetFileName(imgFile.FileName);
-        string qim = "INSERT INTO Recipe(recipe_title,category,preparation_time,description,recipe_image,admin_id) VALUES ('jhkj','category',10,'description','" + link + "',1101)";
-        //string qim = "insert into Recipe (recipe_image) values ('" + link + "')";
-        SqlCommand cmdi = new SqlCommand(qim, sqlcon);
-        sqlcon.Open();
-        cmdi.ExecuteNonQuery();
-        sqlcon.Close();
-
-    }
+  
 }

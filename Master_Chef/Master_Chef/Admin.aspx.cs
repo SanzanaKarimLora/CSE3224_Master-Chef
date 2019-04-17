@@ -13,7 +13,7 @@ public partial class Admin : System.Web.UI.Page
     {
         if (Session["user"] != null)
         {
-            Response.Redirect("~/Welcome.aspx");
+            Response.Redirect("~/WelcomeAdmin.aspx");
         }
     }
 
@@ -32,7 +32,7 @@ public partial class Admin : System.Web.UI.Page
             if (outputlog == "1")
             {
                 Session["user"] = txtUserName.Text;
-                Response.Redirect("~/Welcome.aspx");
+                Response.Redirect("~/WelcomeAdmin.aspx");
 
             }
 
